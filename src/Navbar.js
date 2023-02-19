@@ -1,7 +1,7 @@
 const NavBar = () => {
     return (
         <nav>
-            <p className="logo">Shaun Movies</p>
+            <p className="bg-red-500">Shaun Movies</p>
         </nav>
     )
 }
