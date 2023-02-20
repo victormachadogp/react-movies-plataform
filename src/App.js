@@ -1,4 +1,5 @@
 import './App.css';
+import './App.scss';
 import Navbar from './Navbar';
 
 function App() {
