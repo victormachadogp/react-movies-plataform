@@ -3,6 +3,11 @@ nav {
     height: 107px;
     color: #eaeaea;
 
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+
     .logo {
         font-size: 1.625rem;
         
