@@ -27,6 +27,7 @@ nav {
 .carousel {
     color: #EAEAEA;
     background-image: url("../public/section\ 1.jpg");
+    background-position: bottom;
     height: 40rem;
 }
 
@@ -70,6 +71,7 @@ nav {
 
 .catalog-title {
     background-color:#212125;
+    border-top: 3px solid #FF559E;
      
     h2 {
         margin: 2.315rem 0rem;
