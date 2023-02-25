@@ -1,6 +1,7 @@
 import './App.css';
 import './App.scss';
 import Carousel from './Carousel';
+import Catalog from './Catalog';
 import Navbar from './Navbar';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         <div className='max-w-5xl 2xl:max-w-6xl mx-auto'>
           <Navbar />
           <Carousel />
+          <Catalog />
         </div>
       </section>
     </div>

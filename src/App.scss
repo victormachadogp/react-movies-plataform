@@ -31,6 +31,8 @@ nav {
 
 .title {
     font-size: 1.375rem;
+    text-transform: uppercase;
+    color: white;
 
 
     &::before {
@@ -62,5 +64,13 @@ nav {
             background-color: gray;
             flex-shrink: 0;
         }
+    }
+}
+
+.catalog-title {
+    background-color:#212125;
+     
+    h2 {
+        margin: 2.315rem 3rem;
     }
 }

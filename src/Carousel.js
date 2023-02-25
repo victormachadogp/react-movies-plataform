@@ -28,7 +28,7 @@ const Carousel = () => {
     return (
         <section className="expanded-width carousel">
             <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
-                <h2 className='title uppercase'><span className="font-bold">Lançamentos</span> da Semana</h2>
+                <h2 className='title'><span className="font-bold">Lançamentos</span> da Semana</h2>
 
                 <div className="carousel-main">
                     <div style={carouselStyle} className="carousel-wrapper flex gap-10">
