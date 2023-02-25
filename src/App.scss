@@ -1,5 +1,6 @@
 body {
     background-color: #1B1B1F;
+    color: #EAEAEA;
 }
 
 .expanded-width {
@@ -71,6 +72,22 @@ nav {
     background-color:#212125;
      
     h2 {
-        margin: 2.315rem 3rem;
+        margin: 2.315rem 0rem;
     }
+}
+
+.btn-primary {
+    background: linear-gradient(180deg, #212125 0%, #2E2E35 100%), #212125;;
+    border-radius: 4px;
+    padding: 0.5rem 2rem;
+    border: 2px solid #2E2D31;
+    font-size: 0.9rem;
+}
+
+.btn-secondary {
+    background: linear-gradient(180deg, #FE3189 0%, #FE3189 100%), #FE3189;
+    border-radius: 4px;
+    padding: 0.5rem 2rem;
+    font-size: 0.9rem;
+    filter: drop-shadow(0px 0px 5px #FF0772);
 }
