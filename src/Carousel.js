@@ -31,7 +31,7 @@ const Carousel = () => {
                 <h2 className='title uppercase'><span className="font-bold">Lançamentos</span> da Semana</h2>
 
                 <div className="carousel-main">
-                    <div style={carouselStyle} className="carousel-wrapper flex gap-8">
+                    <div style={carouselStyle} className="carousel-wrapper flex gap-10">
                         <div className="carousel-element"> 1 </div>
                         <div className="carousel-element"> 2 </div>
                         <div className="carousel-element"> 3 </div>
