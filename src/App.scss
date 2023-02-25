@@ -45,3 +45,22 @@ nav {
     top: 2px;
     }
 }
+
+.carousel-main {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    .carousel-wrapper {
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+
+
+        .carousel-element {
+            width: 220px;
+            height: 420px;
+            background-color: gray;
+            flex-shrink: 0;
+        }
+    }
+}
