@@ -1,6 +1,8 @@
 const MovieDetails = () => {
     return (
-        <section className="movie-details">
+        <section className="expanded-width movie-details">
+            <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+        
             <div className="flex gap-12">
                 <div className="movie-poster">
 
@@ -19,6 +21,7 @@ const MovieDetails = () => {
 
                     </div>
                 </div>
+            </div>
             </div>
             
         </section>
