@@ -101,6 +101,34 @@ nav {
 
 .active {
     border-bottom: 2px solid #FF559E;
+}
 
-    
+.movie-details {
+    color: #EAEAEA;
+    background-image: url("../public/section\ 1.jpg");
+    background-position: bottom;
+    height: 40rem;
+
+    .movie-poster {
+        width: 330px;
+        height: 490px;
+        background-color: gray;
+        flex-shrink: 0;
+    }
+
+    .movie-title {
+        font-size: 3.75rem;
+    }
+
+    .movie-rated {
+        p {
+            color: #FE3189;
+        }
+    }
+
+    .movie-description {
+        p {
+            color: #757575;
+        }
+    }
 }
