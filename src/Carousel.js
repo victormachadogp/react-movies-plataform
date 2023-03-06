@@ -32,14 +32,70 @@ const Carousel = () => {
 
                 <div className="carousel-main">
                     <div style={carouselStyle} className="carousel-wrapper flex gap-10">
-                        <div className="carousel-element"> 1 </div>
-                        <div className="carousel-element"> 2 </div>
-                        <div className="carousel-element"> 3 </div>
-                        <div className="carousel-element"> 4 </div>
-                        <div className="carousel-element"> 5 </div>
-                        <div className="carousel-element"> 6 </div>
-                        <div className="carousel-element"> 7 </div>
-                        <div className="carousel-element"> 8 </div>
+                        <div className="carousel-element"> 
+                            <div className="carousel-movie-img">Image</div>
+                            <div className="flex flex-col">
+                                <p>Follow Me</p>
+                                <p className="carousel-movie-genre">Suspense, Terror</p>
+                                <p className="carousel-movie-rate">8.4</p>
+                            </div>
+                         </div>
+                        <div className="carousel-element"> 
+                            <div className="carousel-movie-img">Image</div>
+                            <div className="flex flex-col">
+                                <p>Follow Me</p>
+                                <p className="carousel-movie-genre">Suspense, Terror</p>
+                                <p className="carousel-movie-rate">8.4</p>
+                            </div>
+                         </div>
+                        <div className="carousel-element"> 
+                            <div className="carousel-movie-img">Image</div>
+                            <div className="flex flex-col">
+                                <p>Follow Me</p>
+                                <p className="carousel-movie-genre">Suspense, Terror</p>
+                                <p className="carousel-movie-rate">8.4</p>
+                            </div>
+                         </div>
+                        <div className="carousel-element"> 
+                            <div className="carousel-movie-img">Image</div>
+                            <div className="flex flex-col">
+                                <p>Follow Me</p>
+                                <p className="carousel-movie-genre">Suspense, Terror</p>
+                                <p className="carousel-movie-rate">8.4</p>
+                            </div>
+                         </div>
+                        <div className="carousel-element"> 
+                            <div className="carousel-movie-img">Image</div>
+                            <div className="flex flex-col">
+                                <p>Follow Me</p>
+                                <p className="carousel-movie-genre">Suspense, Terror</p>
+                                <p className="carousel-movie-rate">8.4</p>
+                            </div>
+                         </div>
+                        <div className="carousel-element"> 
+                            <div className="carousel-movie-img">Image</div>
+                            <div className="flex flex-col">
+                                <p>Follow Me</p>
+                                <p className="carousel-movie-genre">Suspense, Terror</p>
+                                <p className="carousel-movie-rate">8.4</p>
+                            </div>
+                         </div>
+                        <div className="carousel-element"> 
+                            <div className="carousel-movie-img">Image</div>
+                            <div className="flex flex-col">
+                                <p>Follow Me</p>
+                                <p className="carousel-movie-genre">Suspense, Terror</p>
+                                <p className="carousel-movie-rate">8.4</p>
+                            </div>
+                         </div>
+                        <div className="carousel-element"> 
+                            <div className="carousel-movie-img">Image</div>
+                            <div className="flex flex-col">
+                                <p>Follow Me</p>
+                                <p className="carousel-movie-genre">Suspense, Terror</p>
+                                <p className="carousel-movie-rate">8.4</p>
+                            </div>
+                         </div>                        
                     </div>
                 </div>
 

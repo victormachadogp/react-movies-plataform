@@ -28,6 +28,13 @@ nav {
     background-image: url("../public/section\ 1.jpg");
     background-position: bottom;
     height: 40rem;
+
+    .carousel-movie-img {
+        min-width: 220px;
+        height: 330px;
+        flex-shrink: 0;
+        background-color: red;
+    }
 }
 
 .title {
@@ -60,9 +67,9 @@ nav {
 
 
         .carousel-element {
-            width: 220px;
-            height: 420px;
-            background-color: gray;
+            // width: 220px;
+            // height: 330px;
+            // background-color: gray;
             flex-shrink: 0;
         }
     }
