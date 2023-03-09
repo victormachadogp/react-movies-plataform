@@ -1,6 +1,11 @@
 import { useState } from "react"
+import FetchData from "./FetchData"
 
 const Carousel = () => {
+    const {data} = FetchData('https://api.themoviedb.org/3/trending/movie/week?api_key=13bed307564b94b94af8c359e589d92e')
+
+    console.log(data)
+
     const [translateX, setTranslateX] = useState(0)
     const [counter, setCounter] = useState(0)
 
@@ -27,6 +32,17 @@ const Carousel = () => {
 
     return (
         <section className="expanded-width carousel">
+
+
+            {data &&
+                <div>
+                    {data.results.map((item) => {
+                        return <div key={item.id}>{item.title}</div>
+                    })}
+                </div>
+            }
+
+
             <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
                 <h2 className='title'><span className="font-bold">Lançamentos</span> da Semana</h2>
 
