@@ -11,7 +11,7 @@ const Carousel = () => {
 
     const prevImage = () => {
         if(counter !== 0) {
-            setTranslateX(translateX + 250)
+            setTranslateX(translateX + 130)
             setCounter(counter - 1)
         }
     }
@@ -21,7 +21,7 @@ const Carousel = () => {
             setTranslateX(0)
             setCounter(0)
         } else {
-        setTranslateX(translateX - 250)
+        setTranslateX(translateX - 130)
         setCounter(counter + 1)
     }
     }
@@ -33,84 +33,26 @@ const Carousel = () => {
     return (
         <section className="expanded-width carousel">
 
-
-            {data &&
-                <div>
-                    {data.results.map((item) => {
-                        return <div key={item.id}>{item.title}</div>
-                    })}
-                </div>
-            }
-
-
             <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
                 <h2 className='title'><span className="font-bold">Lançamentos</span> da Semana</h2>
 
                 <div className="carousel-main">
                     <div style={carouselStyle} className="carousel-wrapper flex gap-10">
-                        <div className="carousel-element"> 
-                            <div className="carousel-movie-img">Image</div>
-                            <div className="flex flex-col">
-                                <p>Follow Me</p>
-                                <p className="carousel-movie-genre">Suspense, Terror</p>
-                                <p className="carousel-movie-rate">8.4</p>
-                            </div>
-                         </div>
-                        <div className="carousel-element"> 
-                            <div className="carousel-movie-img">Image</div>
-                            <div className="flex flex-col">
-                                <p>Follow Me</p>
-                                <p className="carousel-movie-genre">Suspense, Terror</p>
-                                <p className="carousel-movie-rate">8.4</p>
-                            </div>
-                         </div>
-                        <div className="carousel-element"> 
-                            <div className="carousel-movie-img">Image</div>
-                            <div className="flex flex-col">
-                                <p>Follow Me</p>
-                                <p className="carousel-movie-genre">Suspense, Terror</p>
-                                <p className="carousel-movie-rate">8.4</p>
-                            </div>
-                         </div>
-                        <div className="carousel-element"> 
-                            <div className="carousel-movie-img">Image</div>
-                            <div className="flex flex-col">
-                                <p>Follow Me</p>
-                                <p className="carousel-movie-genre">Suspense, Terror</p>
-                                <p className="carousel-movie-rate">8.4</p>
-                            </div>
-                         </div>
-                        <div className="carousel-element"> 
-                            <div className="carousel-movie-img">Image</div>
-                            <div className="flex flex-col">
-                                <p>Follow Me</p>
-                                <p className="carousel-movie-genre">Suspense, Terror</p>
-                                <p className="carousel-movie-rate">8.4</p>
-                            </div>
-                         </div>
-                        <div className="carousel-element"> 
-                            <div className="carousel-movie-img">Image</div>
-                            <div className="flex flex-col">
-                                <p>Follow Me</p>
-                                <p className="carousel-movie-genre">Suspense, Terror</p>
-                                <p className="carousel-movie-rate">8.4</p>
-                            </div>
-                         </div>
-                        <div className="carousel-element"> 
-                            <div className="carousel-movie-img">Image</div>
-                            <div className="flex flex-col">
-                                <p>Follow Me</p>
-                                <p className="carousel-movie-genre">Suspense, Terror</p>
-                                <p className="carousel-movie-rate">8.4</p>
-                            </div>
-                         </div>
-                        <div className="carousel-element"> 
-                            <div className="carousel-movie-img">Image</div>
-                            <div className="flex flex-col">
-                                <p>Follow Me</p>
-                                <p className="carousel-movie-genre">Suspense, Terror</p>
-                                <p className="carousel-movie-rate">8.4</p>
-                            </div>
+                        <div className="carousel-element">                           
+                            {data &&
+                                <div style={carouselStyle} className="carousel-wrapper flex gap-10">
+                                    {data.results.map((item) => {
+                                        return <div className="carousel-element" key={item.id}>
+                                                    <img className="carousel-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
+                                                    <div className="flex flex-col">
+                                                        <p>{item.title}</p>
+                                                        <p className="carousel-movie-genre">Suspense, Terror</p>
+                                                        <p className="carousel-movie-rate">8.4</p>
+                                                    </div>
+                                                </div>
+                                    })}
+                                </div>
+                            }
                          </div>                        
                     </div>
                 </div>
