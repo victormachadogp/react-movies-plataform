@@ -8,6 +8,9 @@ const Carousel = () => {
     // console.log(movieData.results[0].genre_ids)
     // console.log(genreData.genres)
 
+    // Preciso mostrar apenas 8 filmes
+    // 
+
     const getGenreName = (genreIds) => {
         const genreNames = []
         let genreCount = 0;
@@ -56,7 +59,7 @@ const Carousel = () => {
                         <div className="carousel-element">                           
                             {movieData &&
                                 <div style={carouselStyle} className="carousel-wrapper flex gap-10">
-                                    {movieData.results.map((item) => {
+                                    {movieData.results.slice(0,8).map((item) => {
                                         return <div className="carousel-element" key={item.id}>
                                                     <img className="carousel-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                                     <div className="flex flex-col">
