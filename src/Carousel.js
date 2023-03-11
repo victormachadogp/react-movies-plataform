@@ -2,9 +2,24 @@ import { useState } from "react"
 import FetchData from "./FetchData"
 
 const Carousel = () => {
-    const {data} = FetchData('https://api.themoviedb.org/3/trending/movie/week?api_key=13bed307564b94b94af8c359e589d92e')
+    const {data: movieData} = FetchData('https://api.themoviedb.org/3/trending/movie/week?api_key=13bed307564b94b94af8c359e589d92e')
+    const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
+    
+    // console.log(movieData.results[0].genre_ids)
+    // console.log(genreData.genres)
 
-    console.log(data)
+    const getGenreName = (genreIds) => {
+        const genreNames = []
+        let genreCount = 0;
+        genreIds.forEach((id) => {
+            const genre = genreData.genres.find((genre) => genre.id === id);
+            if (genre && genreCount < 2) {
+                genreNames.push(genre.name);
+                genreCount++
+            }
+        })
+        return genreNames.join(", ")
+    }
 
     const [translateX, setTranslateX] = useState(0)
     const [counter, setCounter] = useState(0)
@@ -39,14 +54,14 @@ const Carousel = () => {
                 <div className="carousel-main">
                     <div style={carouselStyle} className="carousel-wrapper flex gap-10">
                         <div className="carousel-element">                           
-                            {data &&
+                            {movieData &&
                                 <div style={carouselStyle} className="carousel-wrapper flex gap-10">
-                                    {data.results.map((item) => {
+                                    {movieData.results.map((item) => {
                                         return <div className="carousel-element" key={item.id}>
                                                     <img className="carousel-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                                     <div className="flex flex-col">
                                                         <p>{item.title}</p>
-                                                        <p className="carousel-movie-genre">Suspense, Terror</p>
+                                                        <p className="carousel-movie-genre">{getGenreName(item.genre_ids)}</p>
                                                         <p className="carousel-movie-rate">8.4</p>
                                                     </div>
                                                 </div>
