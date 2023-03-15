@@ -8,8 +8,7 @@ const Carousel = () => {
     // console.log(movieData.results[0].genre_ids)
     // console.log(genreData.genres)
 
-    // Preciso mostrar apenas 8 filmes
-    // 
+    // Arrumar mais de uma requisção sendo feita no useEffect
 
     const getGenreName = (genreIds) => {
         const genreNames = []
