@@ -65,7 +65,7 @@ const Carousel = () => {
                                                     <div className="flex flex-col">
                                                         <p>{item.title}</p>
                                                         <p className="carousel-movie-genre">{getGenreName(item.genre_ids)}</p>
-                                                        <p className="carousel-movie-rate">8.4</p>
+                                                        <p className="carousel-movie-rate">{item.vote_average.toString().slice(0, 3)}</p>
                                                     </div>
                                                 </div>
                                     })}
