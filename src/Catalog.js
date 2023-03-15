@@ -17,7 +17,16 @@ const Catalog = () => {
                 
                 {/* To change view just remove/add the flex-col and w-full classes */}
                 <div className="flex gap-2 flex-wrap">
-                    <div className="catalog-element">1</div>
+                    <div className="catalog-element flex">
+                        <img className="catalog-element-img" />
+                        <div className="">
+                            <p className="catalog-element-title">Solteira Quase Surtando</p>
+                            <p className="catalog-element-genre">Comédia</p>
+                            <p className="catalog-element-rate">8.4</p>
+                            <p className="catalog-element-desc">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                            </p>
+                        </div>
+                    </div>
                     <div className="catalog-element">2</div>
                     <div className="catalog-element">3</div>
                     <div className="catalog-element">4</div>

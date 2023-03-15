@@ -101,8 +101,15 @@ nav {
 
 .catalog-element {
     min-width: 495px;
+    max-width: 495px;
     height: 250px;
     background-color: gray;
+
+    .catalog-element-img {
+        background-color: red;
+        min-width: 157px;
+        height: 100%;
+    }
 }
 
 .active {
