@@ -1,4 +1,23 @@
+import FetchData from "./FetchData"
+
 const Catalog = () => {
+    const {data: movieData} = FetchData('https://api.themoviedb.org/3/movie/popular?api_key=13bed307564b94b94af8c359e589d92e&language=en-US&page=1')
+    const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
+
+    const getGenreName = (genreIds) => {
+        const genreNames = []
+        let genreCount = 0;
+        genreIds.forEach((id) => {
+            const genre = genreData.genres.find((genre) => genre.id === id);
+            if (genre && genreCount < 2) {
+                genreNames.push(genre.name);
+                genreCount++
+            }
+        })
+        return genreNames.join(", ")
+    }
+
+
     return (
         <section>
             <div className="expanded-width catalog-title">
@@ -16,23 +35,25 @@ const Catalog = () => {
                 </div>
                 
                 {/* To change view just remove/add the flex-col and w-full classes */}
-                <div className="flex gap-2 flex-wrap">
-                    <div className="catalog-element flex">
-                        <img className="catalog-element-img" />
-                        <div className="">
-                            <p className="catalog-element-title">Solteira Quase Surtando</p>
-                            <p className="catalog-element-genre">Comédia</p>
-                            <p className="catalog-element-rate">8.4</p>
-                            <p className="catalog-element-desc">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                            </p>
+                    {movieData && 
+                        <div className="flex gap-2 flex-wrap">
+                            {movieData.results.slice(0,6).map((item) => {
+                                return <div className="catalog-element flex" key={item.id}>
+                                           <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
+                                            <div>
+                                            <p className="catalog-element-title">{item.title}</p>
+                                                {genreData && <p className="catalog-element-genre">{getGenreName(item.genre_ids)}</p>}
+                                                <p className="catalog-element-rate">{item.vote_average.toString().slice(0, 3)}</p>
+                                                <p className="catalog-element-desc">{item.overview}
+                                                </p>
+
+                                            </div>
+                                </div>
+                            })}
+
                         </div>
-                    </div>
-                    <div className="catalog-element">2</div>
-                    <div className="catalog-element">3</div>
-                    <div className="catalog-element">4</div>
-                    <div className="catalog-element">5</div>
-                    <div className="catalog-element">6</div>
-                </div>
+                    
+                    }
 
                 <div className="flex justify-center my-20">
                     <button className="btn-secondary">carregar mais</button>
