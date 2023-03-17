@@ -100,16 +100,28 @@ nav {
 }
 
 .catalog-element {
-    min-width: 495px;
-    max-width: 495px;
+    width: 495px;
     height: 250px;
-    background-color: gray;
 
     .catalog-element-img {
         background-color: red;
         min-width: 157px;
         height: 100%;
     }
+
+    .catalog-movie-img {
+        width: 166px;
+    }
+
+    // .catalog-element-desc {
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     word-wrap: break-word;
+    //     max-width: 328px;
+    //     display: -webkit-box;
+    //     -webkit-box-orient: vertical;
+    //     -webkit-line-clamp: 7;
+    // }
 }
 
 .active {
