@@ -6,6 +6,7 @@ const Catalog = () => {
     const [genre, setGenre] = useState("por gênero");
     const [selectedView, setSelectedView] = useState("all");
     const [selectedMovieGenre, setselectedMovieGenre] = useState([]);
+    const [showMore, setshowMore] = useState(6);
       
     const {data: movieData} = FetchData('https://api.themoviedb.org/3/movie/popular?api_key=13bed307564b94b94af8c359e589d92e&language=en-US&page=1')
     const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
@@ -28,12 +29,18 @@ const Catalog = () => {
 
         setselectedMovieGenre(selectedMoviesByGenre)
         setSelectedView("genre")
-        console.log(selectedMoviesByGenre)
+        setshowMore(6)
+        // console.log(selectedMoviesByGenre)
     }
 
     const showMostPopular = () => {
         setSelectedView("all")
         setGenre("por gênero")
+        setshowMore(6)
+    }
+
+    const showMoreMovies = () => {
+        setshowMore(showMore + 6)
     }
 
 
@@ -98,7 +105,7 @@ const Catalog = () => {
                         <div>
                             {movieData && 
                         <div className="flex gap-2 flex-wrap catalog-block">
-                            {selectedMovieGenre.slice(0,6).map((item) => {
+                            {selectedMovieGenre.slice(0, showMore).map((item) => {
                                 return <div className="catalog-element flex" key={item.id}>
                                            <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                             <div>
@@ -123,7 +130,7 @@ const Catalog = () => {
                         <div>
                                   {movieData && 
                         <div className="flex gap-2 flex-wrap catalog-block">
-                            {movieData.results.slice(0,6).map((item) => {
+                            {movieData.results.slice(0, showMore).map((item) => {
                                 return <div className="catalog-element flex" key={item.id}>
                                            <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                             <div>
@@ -166,7 +173,7 @@ const Catalog = () => {
                     } */}
 
                 <div className="flex justify-center my-20">
-                    <button className="btn-secondary">carregar mais</button>
+                    <button onClick={showMoreMovies} className="btn-secondary">carregar mais</button>
                 </div>
              </div>
         </section>
