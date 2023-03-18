@@ -94,7 +94,7 @@ const Catalog = () => {
                 </div>
                     <div>
 
-                {selectedView === "genre" && movieData && 
+                {selectedView === "genre" && selectedMovieGenre && 
                         <div>
                             {movieData && 
                         <div className="flex gap-2 flex-wrap catalog-block">
@@ -119,7 +119,7 @@ const Catalog = () => {
                     }
 
 
-                {selectedView === "all" && selectedMovieGenre && 
+                {selectedView === "all" && movieData && 
                         <div>
                                   {movieData && 
                         <div className="flex gap-2 flex-wrap catalog-block">
