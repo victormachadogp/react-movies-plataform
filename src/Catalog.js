@@ -6,7 +6,7 @@ const Catalog = () => {
     const [genre, setGenre] = useState("por gênero");
     const [selectedView, setSelectedView] = useState("all");
     const [selectedMovieGenre, setselectedMovieGenre] = useState([]);
-    const [showMore, setshowMore] = useState(6);
+    const [showMore, setShowMore] = useState(6);
       
     const {data: movieData} = FetchData('https://api.themoviedb.org/3/movie/popular?api_key=13bed307564b94b94af8c359e589d92e&language=en-US&page=1')
     const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
@@ -29,18 +29,18 @@ const Catalog = () => {
 
         setselectedMovieGenre(selectedMoviesByGenre)
         setSelectedView("genre")
-        setshowMore(6)
+        setShowMore(6)
         // console.log(selectedMoviesByGenre)
     }
 
     const showMostPopular = () => {
         setSelectedView("all")
         setGenre("por gênero")
-        setshowMore(6)
+        setShowMore(6)
     }
 
     const showMoreMovies = () => {
-        setshowMore(showMore + 6)
+        setShowMore(showMore + 6)
     }
 
 
