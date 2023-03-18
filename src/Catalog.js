@@ -3,6 +3,8 @@ import FetchData from "./FetchData"
 
 const Catalog = () => {
     const [buttonText, setButtonText] = useState("em lista");
+    const [genre, setGenre] = useState("por gênero");
+    const [selectedGenreId, setSelectedGenreId] = useState("");
       
     const {data: movieData} = FetchData('https://api.themoviedb.org/3/movie/popular?api_key=13bed307564b94b94af8c359e589d92e&language=en-US&page=1')
     const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
@@ -20,6 +22,14 @@ const Catalog = () => {
         return genreNames.join(", ")
     }
 
+    const showCurrentGenreMovies = () => {
+        const selectedMoviesByGenre = movieData.results.filter(movie => movie.genre_ids.includes(selectedGenreId));
+
+        console.log(selectedMoviesByGenre)
+    }
+
+
+
     const changeFlexLayout = () => {
         const catalogBlock = document.querySelector(".catalog-block");
         catalogBlock.classList.toggle("flex-col");
@@ -35,9 +45,7 @@ const Catalog = () => {
             }
             
         })
-
-
-        buttonText ? setButtonText("em grid") : setButtonText("em lista") 
+ 
         if (buttonText === "em lista") {
             setButtonText("em grid");
           } else {
@@ -56,13 +64,29 @@ const Catalog = () => {
              <div>
                 <div className="flex justify-between my-10">
                     <div>
-                        <button className="btn-primary">por gênero</button>
+                        {genreData && 
+                        <select
+                        value={genre}
+                        onChange={(e) => {
+                            setGenre(e.target.value)
+                            const selectedIndex = e.target.selectedIndex;
+                            const selectedGenreId = genreData.genres[selectedIndex - 1].id;
+                            setSelectedGenreId(selectedGenreId);
+                            showCurrentGenreMovies()
+                        }}
+                        className="btn-primary">
+                            <option selected>por gênero</option>
+                                {genreData.genres.map((genre) => {
+                                    return <option key={genre.id}>{genre.name}</option>
+                                })}                            
+                        </select>
+                            }
                         <button className="btn-secondary ml-4">mais populares</button>
+                        {/* <button onClick={showCurrentGenreMovies} className="btn-secondary ml-4">{selectedGenreId}</button> */}
                     </div>
                     <button onClick={changeFlexLayout} className="btn-primary">{buttonText}</button>
                 </div>
                 
-                {/* To change view just remove/add the flex-col and w-full classes */}
                     {movieData && 
                         <div className="flex gap-2 flex-wrap catalog-block">
                             {movieData.results.slice(0,6).map((item) => {
