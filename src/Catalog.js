@@ -30,7 +30,6 @@ const Catalog = () => {
         setselectedMovieGenre(selectedMoviesByGenre)
         setSelectedView("genre")
         setShowMore(6)
-        // console.log(selectedMoviesByGenre)
     }
 
     const showMostPopular = () => {
@@ -150,27 +149,6 @@ const Catalog = () => {
                         </div>
                     }
                 </div>
-
-                
-                    {/* {movieData && 
-                        <div className="flex gap-2 flex-wrap catalog-block">
-                            {movieData.results.slice(0,6).map((item) => {
-                                return <div className="catalog-element flex" key={item.id}>
-                                           <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
-                                            <div>
-                                            <p className="catalog-element-title">{item.title}</p>
-                                                {genreData && <p className="catalog-element-genre">{getGenreName(item.genre_ids)}</p>}
-                                                <p className="catalog-element-rate">{item.vote_average.toString().slice(0, 3)}</p>
-                                                <p className="catalog-element-desc">{item.overview}
-                                                </p>
-
-                                            </div>
-                                </div>
-                            })}
-
-                        </div>
-                    
-                    } */}
 
                 <div className="flex justify-center my-20">
                     <button onClick={showMoreMovies} className="btn-secondary">carregar mais</button>
