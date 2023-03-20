@@ -6,6 +6,7 @@ const MovieDetails = () => {
     const {id} = useParams()
 
     const {data: movieData} = FetchData(`https://api.themoviedb.org/3/movie/${id}?api_key=13bed307564b94b94af8c359e589d92e&language=pt-`)
+    const {data: trailer} = FetchData(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=13bed307564b94b94af8c359e589d92e&language=en-US`)
 
     const getGenreName = (genreIds) => {
         const genreNames = genreIds.map((genre) => {
@@ -45,10 +46,12 @@ const MovieDetails = () => {
             </div>
 
             <div className="movie-trailer mt-12">
-                <h3 className="text-3xl	pb-2">
+                <h3 className="text-3xl	pb-2 mb-10">
                     Trailer
                 </h3>
-                <div></div>
+                <div>
+                    {trailer && <iframe width="100%" height="650" src={`https://www.youtube.com/embed/${trailer.results.at(-1).key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>}
+                </div>
 
                 <div className="flex justify-center mt-12">
                     <button className="btn-secondary">voltar</button>
