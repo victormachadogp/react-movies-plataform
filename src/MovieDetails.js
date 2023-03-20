@@ -23,7 +23,7 @@ const MovieDetails = () => {
                     {movieData &&
                     <div className="flex gap-12">
                         <div className="movie-poster">
-                            <img src={`http://image.tmdb.org/t/p/w300/${movieData.poster_path}`} alt={movieData.title} />
+                            <img className="w-full" src={`http://image.tmdb.org/t/p/w300/${movieData.poster_path}`} alt={movieData.title} />
                         </div>
                         <div className="flex flex-col">
                             <h1>{id}</h1>

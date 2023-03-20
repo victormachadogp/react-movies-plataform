@@ -112,16 +112,6 @@ nav {
     .catalog-movie-img {
         width: 166px;
     }
-
-    // .catalog-element-desc {
-    //     overflow: hidden;
-    //     text-overflow: ellipsis;
-    //     word-wrap: break-word;
-    //     max-width: 328px;
-    //     display: -webkit-box;
-    //     -webkit-box-orient: vertical;
-    //     -webkit-line-clamp: 7;
-    // }
 }
 
 .active {
@@ -138,7 +128,6 @@ nav {
         .movie-poster {
             width: 330px;
             height: 490px;
-            background-color: gray;
             flex-shrink: 0;
         }
     
