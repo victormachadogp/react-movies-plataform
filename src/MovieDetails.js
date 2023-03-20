@@ -5,8 +5,14 @@ const MovieDetails = () => {
 
     const {id} = useParams()
 
-    const {data: movieData} = FetchData(`https://api.themoviedb.org/3/movie/${id}?api_key=13bed307564b94b94af8c359e589d92e&language=en-US`)
-    const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
+    const {data: movieData} = FetchData(`https://api.themoviedb.org/3/movie/${id}?api_key=13bed307564b94b94af8c359e589d92e&language=pt-`)
+
+    const getGenreName = (genreIds) => {
+        const genreNames = genreIds.map((genre) => {
+            return genre.name
+        })
+        return genreNames.join(", ")
+    }
 
     return (
         <section className="movie">
@@ -22,7 +28,7 @@ const MovieDetails = () => {
                             <h1>{id}</h1>
                             <h2 className="movie-title font-bold">{movieData.title}</h2>
                             <div className="movie-rated flex justify-between">
-                                <p className="font-light">Comédia</p>
+                                <p className="font-light">{getGenreName(movieData.genres)}</p>
                                 <span>{movieData.vote_average.toString().slice(0, 3)}</span>
                             </div>
                             <div className="movie-description flex flex-col">
