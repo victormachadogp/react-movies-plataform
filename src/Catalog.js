@@ -1,5 +1,7 @@
 import { useState } from "react"
 import FetchData from "./FetchData"
+import { useNavigate } from "react-router-dom";
+
 
 const Catalog = () => {
     const [buttonText, setButtonText] = useState("em lista");
@@ -10,6 +12,8 @@ const Catalog = () => {
       
     const {data: movieData} = FetchData('https://api.themoviedb.org/3/movie/popular?api_key=13bed307564b94b94af8c359e589d92e&language=en-US&page=1')
     const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
+
+    const navigate = useNavigate()
 
     const getGenreName = (genreIds) => {
         const genreNames = []
@@ -65,6 +69,10 @@ const Catalog = () => {
           } else {
             setButtonText("em lista");
           }
+    }
+
+    const goToDetails = (id) => {
+        navigate((`/movie-details/${id}`))
     }
 
 
@@ -130,7 +138,7 @@ const Catalog = () => {
                                   {movieData && 
                         <div className="flex gap-2 flex-wrap catalog-block">
                             {movieData.results.slice(0, showMore).map((item) => {
-                                return <div className="catalog-element flex" key={item.id}>
+                                return <div className="catalog-element flex cursor-pointer" key={item.id} onClick={() => goToDetails(item.id)}>
                                            <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                             <div>
                                             <p className="catalog-element-title">{item.title}</p>

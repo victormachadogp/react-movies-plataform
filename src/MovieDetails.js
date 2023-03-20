@@ -1,28 +1,40 @@
+import { useParams } from "react-router-dom"
+import FetchData from "./FetchData"
+
 const MovieDetails = () => {
+
+    const {id} = useParams()
+
+    const {data: movieData} = FetchData(`https://api.themoviedb.org/3/movie/${id}?api_key=13bed307564b94b94af8c359e589d92e&language=en-US`)
+    const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
+
     return (
         <section className="movie">
             <div className="expanded-width movie-details py-24">
                 <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
             
+                    {movieData &&
                     <div className="flex gap-12">
                         <div className="movie-poster">
-
+                            <img src={`http://image.tmdb.org/t/p/w300/${movieData.poster_path}`} alt={movieData.title} />
                         </div>
                         <div className="flex flex-col">
-                            <h2 className="movie-title font-bold">Solteira Quase Surtando</h2>
+                            <h1>{id}</h1>
+                            <h2 className="movie-title font-bold">{movieData.title}</h2>
                             <div className="movie-rated flex justify-between">
                                 <p className="font-light">Comédia</p>
-                                <span>8.4</span>
+                                <span>{movieData.vote_average.toString().slice(0, 3)}</span>
                             </div>
                             <div className="movie-description flex flex-col">
                                 <span>Sinopse</span>
                                 <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. 
+                                    {movieData.overview}
                                 </p>
 
                             </div>
                         </div>
                     </div>
+                        }
                 </div>
             </div>
 
