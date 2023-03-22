@@ -21,6 +21,24 @@ nav {
     p:hover, a:hover {
         color: white;
     }
+
+    .search-box {
+        background-color: #212125;
+
+        input {
+            background-color: #212125;
+            border-bottom: 1px solid #FE3189;
+            padding-bottom: 0.5rem;
+            font-size: 32px;
+
+
+            &:focus-visible {
+                outline: none;
+            }
+        }
+
+
+    }
 }
 
 .carousel {
