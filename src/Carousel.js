@@ -1,10 +1,13 @@
 import { useState } from "react"
 import FetchData from "./FetchData"
+import { useNavigate } from "react-router-dom";
 
 const Carousel = () => {
     const {data: movieData} = FetchData('https://api.themoviedb.org/3/trending/movie/week?api_key=13bed307564b94b94af8c359e589d92e')
     const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
     
+    const navigate = useNavigate()
+
     // console.log(movieData.results[0].genre_ids)
     // console.log(genreData.genres)
 
@@ -47,6 +50,10 @@ const Carousel = () => {
         transform: `translateX(${translateX}px)`,
     }
 
+    const goToDetails = (id) => {
+        navigate((`/movie-details/${id}`))
+    }
+
     return (
         <section className="expanded-width carousel">
 
@@ -59,7 +66,7 @@ const Carousel = () => {
                             {movieData &&
                                 <div style={carouselStyle} className="carousel-wrapper flex gap-10">
                                     {movieData.results.slice(0,8).map((item) => {
-                                        return <div className="carousel-element" key={item.id}>
+                                        return <div className="carousel-element cursor-pointer" key={item.id} onClick={() => goToDetails(item.id)}>
                                                     <img className="carousel-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                                     <div className="flex flex-col">
                                                         <p>{item.title}</p>
