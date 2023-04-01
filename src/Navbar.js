@@ -1,13 +1,63 @@
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom"
 
-
-const handleSearch = () => {
-    const searchBlock = document.querySelector(".search-box");
-
-    console.log(searchBlock)
-}
-
 const NavBar = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [movies, setMovies] = useState([]);
+    const [filteredMovies, setFilteredMovies] = useState([]);
+    const [isWriting, setisWriting] = useState(false);
+
+
+    
+    const handleSearch = () => {
+        const searchBlock = document.querySelector(".search-box");
+        console.log(searchBlock)
+    }
+
+    useEffect(() => {
+
+        if(isWriting) {
+            const timeoutId = setTimeout(() => {
+                fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=13bed307564b94b94af8c359e589d92e`)
+                  .then(response => response.json())
+                  .then(data => {
+                      setMovies(data.results)
+                      setFilteredMovies(data.results)
+                  })
+                  .catch(error => console.error(error));
+              }, 500);
+
+              return () => {
+                clearTimeout(timeoutId);
+              };
+        }
+        
+      }, [isWriting]);
+    
+    
+      function handleInputChange(event) {
+        const term = event.target.value.toLowerCase();
+        setSearchTerm(term);
+
+        setisWriting(true)
+
+        if(term === "" || term === " " ) {
+            setFilteredMovies([])
+            return
+        } 
+
+        const filtered = movies.filter(movie => {
+            return movie.original_title.toLowerCase().includes(term);
+          });
+          setFilteredMovies(filtered);
+
+          console.log(filteredMovies)
+      
+      }
+
+
+
+
     return (
         <nav className="expanded-width">
             <div className="max-w-5xl 2xl:max-w-6xl mx-auto flex items-center justify-between">
@@ -32,9 +82,11 @@ const NavBar = () => {
             </div>
             <div className="search-box">
                 <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
-                    <input className="w-full"/>
+                    <input className="w-full" type="text" value={searchTerm} onChange={handleInputChange} />
                     <div className="movie-list pb-20">
-
+                            {filteredMovies.map((movieFiltered) => {
+                                return <div key={movieFiltered.id}>{movieFiltered.original_title}</div>
+                            })}    
                     </div>
                 </div>
             </div>
