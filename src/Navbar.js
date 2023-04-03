@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom"
+import FetchData from "./FetchData"
 
 const NavBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -7,7 +8,7 @@ const NavBar = () => {
     const [filteredMovies, setFilteredMovies] = useState([]);
     const [isWriting, setisWriting] = useState(false);
 
-
+    const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
     
     const handleSearch = () => {
         const searchBlock = document.querySelector(".search-box");
@@ -55,6 +56,19 @@ const NavBar = () => {
       
       }
 
+      const getGenreName = (genreIds) => {
+        const genreNames = []
+        let genreCount = 0;
+        genreIds.forEach((id) => {
+            const genre = genreData.genres.find((genre) => genre.id === id);
+            if (genre && genreCount < 2) {
+                genreNames.push(genre.name);
+                genreCount++
+            }
+        })
+        return genreNames.join(", ")
+    }
+
 
 
 
@@ -84,10 +98,17 @@ const NavBar = () => {
                 <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
                     <input className="w-full" type="text" value={searchTerm} onChange={handleInputChange} />
                     <div className="movie-list pb-20">
-                            {filteredMovies.map((movieFiltered) => {
-                                return <div key={movieFiltered.id}>{movieFiltered.original_title}</div>
+                            {filteredMovies.slice(0,1).map((movieFiltered) => {
+                                return <div className="movie-search-result">
+                                            <img src={`http://image.tmdb.org/t/p/w300/${movieFiltered.poster_path}`} alt={movieFiltered.title} key={movieFiltered.id} />
+                                            <div className="movie-search-result-info">
+                                                <p>{movieFiltered.original_title}</p> 
+                                                <p>{genreData && <p className="catalog-element-genre">{getGenreName(movieFiltered.genre_ids)}</p>}</p>
+                                            </div>
+                                      </div>
                             })}    
                     </div>
+                    
                 </div>
             </div>
         </nav>
