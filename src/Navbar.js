@@ -101,9 +101,10 @@ const NavBar = () => {
                             {filteredMovies.slice(0,1).map((movieFiltered) => {
                                 return <div className="movie-search-result">
                                             <img src={`http://image.tmdb.org/t/p/w300/${movieFiltered.poster_path}`} alt={movieFiltered.title} key={movieFiltered.id} />
-                                            <div className="movie-search-result-info">
-                                                <p>{movieFiltered.original_title}</p> 
-                                                <p>{genreData && <p className="catalog-element-genre">{getGenreName(movieFiltered.genre_ids)}</p>}</p>
+                                            <div className="movie-search-result-info mt-4">
+                                                <p className="movie-search-result-title">{movieFiltered.original_title}</p> 
+                                                {genreData && <p className="movie-search-result-genre">{getGenreName(movieFiltered.genre_ids)}</p>}
+                                                <p className="movie-search-result-rate">{movieFiltered.vote_average.toString().slice(0, 3)}</p>
                                             </div>
                                       </div>
                             })}    

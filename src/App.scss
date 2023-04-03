@@ -37,7 +37,33 @@ nav {
             }
         }
 
+    }
 
+    .movie-search-result {
+        display: flex;
+        background-color: #252529;
+        width: 300px;
+        border-radius: 4px;
+        border: 1px solid #313136;
+        padding: 1rem;
+        gap: 1rem;
+        margin: 2.5rem 0rem;
+
+        img {
+            width: 100px;
+        }
+
+        .movie-search-result-genre {
+            font-weight: 300;
+            text-transform: capitalize;
+            color: #FE3189;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .movie-search-result-rate {
+            font-size: 0.9rem;
+        }
     }
 }
 
