@@ -69,7 +69,7 @@ const Carousel = () => {
                                         return <div className="carousel-element cursor-pointer" key={item.id} onClick={() => goToDetails(item.id)}>
                                                     <img className="carousel-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                                     <div className="flex flex-col">
-                                                        <p>{item.title}</p>
+                                                        <p className="carousel-movie-title">{item.title}</p>
                                                         {genreData && <p className="carousel-movie-genre">{getGenreName(item.genre_ids)}</p>}
                                                         <p className="carousel-movie-rate">{item.vote_average.toString().slice(0, 3)}</p>
                                                     </div>
