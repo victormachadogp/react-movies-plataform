@@ -110,6 +110,23 @@ nav {
     }
 }
 
+.carousel-block {
+    position: relative;
+
+    .prev-button {
+        position: absolute;
+        top: 45%;
+        left: -70px;
+    }
+
+    .next-button {
+        position: absolute;
+        top: 45%;
+        right: -50px;
+    }
+    
+}
+
 .carousel-main {
     position: relative;
     width: 100%;
@@ -131,6 +148,12 @@ nav {
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+                padding-top: 1rem;
+            }
+
+            .carousel-movie-genre {
+                color: #FE3189;
+                font-size: 0.965rem;
             }
         }
     }

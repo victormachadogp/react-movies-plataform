@@ -57,7 +57,7 @@ const Carousel = () => {
     return (
         <section className="expanded-width carousel">
 
-            <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
+            <div className="max-w-5xl 2xl:max-w-6xl mx-auto carousel-block">
                 <h2 className='title'><span className="font-bold">Lançamentos</span> da Semana</h2>
 
                 <div className="carousel-main">
@@ -71,7 +71,20 @@ const Carousel = () => {
                                                     <div className="flex flex-col">
                                                         <p className="carousel-movie-title">{item.title}</p>
                                                         {genreData && <p className="carousel-movie-genre">{getGenreName(item.genre_ids)}</p>}
-                                                        <p className="carousel-movie-rate">{item.vote_average.toString().slice(0, 3)}</p>
+                                                        
+                                                        <p className="carousel-movie-rate flex items-center gap-2">
+                                                            <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <g clip-path="url(#clip0_1586_95)">
+                                                                <path d="M16.8041 7.70929H10.6666L8.81112 2L6.9556 7.70929H0.818115L5.81375 11.1349L3.88686 16.8442L8.81112 13.2759L13.7354 16.8442L11.8085 11.1349L16.8041 7.70929Z" fill="#FE3189" stroke="#FE3189" stroke-width="1.3956" stroke-linejoin="round"/>
+                                                                </g>
+                                                                <defs>
+                                                                <clipPath id="clip0_1586_95">
+                                                                <rect width="18" height="16.3636" rx="4" fill="white"/>
+                                                                </clipPath>
+                                                                </defs>
+                                                            </svg>
+                                                            {item.vote_average.toString().slice(0, 3)}
+                                                            </p>
                                                     </div>
                                                 </div>
                                     })}
@@ -83,8 +96,31 @@ const Carousel = () => {
 
                 <p>{counter}</p>
 
-                <button onClick={prevImage}>Prev</button>
-                <button onClick={nextImage}>Next</button>
+                <button className="prev-button" onClick={prevImage}>
+                    <svg width="25" height="42" viewBox="0 0 25 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1586_125)">
+                        <path d="M21.4394 3.59033L3.8103 21.2194L21.4394 38.8485" stroke="#EAEAEA" stroke-width="5.87636" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_1586_125">
+                        <rect width="25" height="42" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+                <button className="next-button" onClick={nextImage}>
+                    <svg width="24" height="42" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1586_127)">
+                        <path d="M3.03083 38.8486L20.6599 21.2196L3.03083 3.59047" stroke="#EAEAEA" stroke-width="5.87636" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_1586_127">
+                        <rect width="24" height="42" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+
+                </button>
             </div>
         </section>
     )
