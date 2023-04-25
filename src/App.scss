@@ -190,6 +190,11 @@ nav {
     width: 495px;
     height: 250px;
 
+    .catalog-element-desc {
+        height: 173px;
+        overflow: hidden;
+    }
+
     .catalog-element-img {
         background-color: red;
         min-width: 157px;
