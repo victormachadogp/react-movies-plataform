@@ -189,10 +189,23 @@ nav {
 .catalog-element {
     width: 495px;
     height: 250px;
+    gap: 1rem;
 
     .catalog-element-desc {
-        height: 173px;
+        height: 145px;
         overflow: hidden;
+        color: #9F9FA0;
+        font-size: 0.875rem;
+    }
+
+    .catalog-element-genre {
+        color: #FE3189;
+        font-size: 0.875rem;
+    }
+
+    .catalog-element-rate {
+        margin: 1rem 0;
+        font-size: 0.875rem;
     }
 
     .catalog-element-img {

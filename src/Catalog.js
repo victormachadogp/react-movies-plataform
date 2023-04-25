@@ -111,14 +111,27 @@ const Catalog = () => {
                 {selectedView === "genre" && selectedMovieGenre && 
                         <div>
                             {movieData && 
-                        <div className="flex gap-2 flex-wrap catalog-block">
+                        <div className="flex gap-10 flex-wrap catalog-block">
                             {selectedMovieGenre.slice(0, showMore).map((item) => {
                                 return <div className="catalog-element flex" key={item.id}>
                                            <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                             <div>
                                             <p className="catalog-element-title">{item.title}</p>
                                                 {genreData && <p className="catalog-element-genre">{getGenreName(item.genre_ids)}</p>}
-                                                <p className="catalog-element-rate">{item.vote_average.toString().slice(0, 3)}</p>
+                                                <p className="catalog-element-rate flex items-center gap-2">
+                                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_1586_95)">
+                                                    <path d="M16.8041 7.70929H10.6666L8.81112 2L6.9556 7.70929H0.818115L5.81375 11.1349L3.88686 16.8442L8.81112 13.2759L13.7354 16.8442L11.8085 11.1349L16.8041 7.70929Z" fill="#FE3189" stroke="#FE3189" stroke-width="1.3956" stroke-linejoin="round"/>
+                                                    </g>
+                                                    <defs>
+                                                    <clipPath id="clip0_1586_95">
+                                                    <rect width="18" height="16.3636" rx="4" fill="white"/>
+                                                    </clipPath>
+                                                    </defs>
+                                                </svg>
+                                                    {item.vote_average.toString().slice(0, 3)}
+                                                    
+                                                </p>
                                                 <p className="catalog-element-desc">{item.overview}
                                                 </p>
 
@@ -136,14 +149,26 @@ const Catalog = () => {
                 {selectedView === "all" && movieData && 
                         <div>
                                   {movieData && 
-                        <div className="flex gap-2 flex-wrap catalog-block">
+                        <div className="flex gap-5 flex-wrap catalog-block">
                             {movieData.results.slice(0, showMore).map((item) => {
                                 return <div className="catalog-element flex cursor-pointer" key={item.id} onClick={() => goToDetails(item.id)}>
                                            <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
                                             <div>
                                             <p className="catalog-element-title">{item.title}</p>
                                                 {genreData && <p className="catalog-element-genre">{getGenreName(item.genre_ids)}</p>}
-                                                <p className="catalog-element-rate">{item.vote_average.toString().slice(0, 3)}</p>
+                                                <p className="catalog-element-rate flex items-center gap-2">
+                                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_1586_95)">
+                                                    <path d="M16.8041 7.70929H10.6666L8.81112 2L6.9556 7.70929H0.818115L5.81375 11.1349L3.88686 16.8442L8.81112 13.2759L13.7354 16.8442L11.8085 11.1349L16.8041 7.70929Z" fill="#FE3189" stroke="#FE3189" stroke-width="1.3956" stroke-linejoin="round"/>
+                                                    </g>
+                                                    <defs>
+                                                    <clipPath id="clip0_1586_95">
+                                                    <rect width="18" height="16.3636" rx="4" fill="white"/>
+                                                    </clipPath>
+                                                    </defs>
+                                                </svg>
+                                                    {item.vote_average.toString().slice(0, 3)}
+                                                </p>
                                                 <p className="catalog-element-desc">{item.overview}
                                                 </p>
 
