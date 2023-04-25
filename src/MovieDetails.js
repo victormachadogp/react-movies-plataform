@@ -26,11 +26,22 @@ const MovieDetails = () => {
                             <img className="w-full" src={`http://image.tmdb.org/t/p/w300/${movieData.poster_path}`} alt={movieData.title} />
                         </div>
                         <div className="flex flex-col">
-                            <h1>{id}</h1>
                             <h2 className="movie-title font-bold">{movieData.title}</h2>
                             <div className="movie-rated flex justify-between">
                                 <p className="font-light">{getGenreName(movieData.genres)}</p>
-                                <span>{movieData.vote_average.toString().slice(0, 3)}</span>
+                                <span className="flex items-center gap-2">
+                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_1586_95)">
+                                                    <path d="M16.8041 7.70929H10.6666L8.81112 2L6.9556 7.70929H0.818115L5.81375 11.1349L3.88686 16.8442L8.81112 13.2759L13.7354 16.8442L11.8085 11.1349L16.8041 7.70929Z" fill="#FE3189" stroke="#FE3189" stroke-width="1.3956" stroke-linejoin="round"/>
+                                                    </g>
+                                                    <defs>
+                                                    <clipPath id="clip0_1586_95">
+                                                    <rect width="18" height="16.3636" rx="4" fill="white"/>
+                                                    </clipPath>
+                                                    </defs>
+                                                </svg>
+                                    {movieData.vote_average.toString().slice(0, 3)}
+                                </span>
                             </div>
                             <div className="movie-description flex flex-col">
                                 <span>Sinopse</span>

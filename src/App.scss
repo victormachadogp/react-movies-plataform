@@ -243,9 +243,13 @@ nav {
     
         .movie-title {
             font-size: 3.75rem;
+            line-height: 4.5rem;
         }
     
         .movie-rated {
+            margin-top: 0.8rem;
+            margin-bottom: 2rem;
+
             p {
                 color: #FE3189;
             }
@@ -254,6 +258,7 @@ nav {
         .movie-description {
             p {
                 color: #757575;
+                margin-top: 0.965rem;
             }
         }
     
