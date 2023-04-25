@@ -111,7 +111,7 @@ const Catalog = () => {
                 {selectedView === "genre" && selectedMovieGenre && 
                         <div>
                             {movieData && 
-                        <div className="flex gap-10 flex-wrap catalog-block">
+                        <div className="flex gap-5 flex-wrap catalog-block">
                             {selectedMovieGenre.slice(0, showMore).map((item) => {
                                 return <div className="catalog-element flex" key={item.id}>
                                            <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
