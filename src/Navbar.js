@@ -9,6 +9,7 @@ const NavBar = () => {
     const [filteredMovies, setFilteredMovies] = useState([]);
     const [isWriting, setisWriting] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [isMenuVisible, setIsMenuVisible] = useState(false);
 
     const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
     
@@ -78,16 +79,40 @@ const NavBar = () => {
         setIsVisible(false)
     }
 
+    const toggleMobileMenu = () => {
+        setIsMenuVisible(!isMenuVisible)
+    }
+
 
 
 
     return (
         <nav className="expanded-width">
             <div className="max-w-5xl 2xl:max-w-6xl mx-auto flex items-center justify-between">
+                <div className="navbar-menu-block md:hidden" onClick={toggleMobileMenu}>
+                <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1822_109)">
+                    <path d="M1 1H23M1 7H23M1 13H23" stroke="#EAEAEA" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_1822_109">
+                    <rect width="24" height="14" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+                {isMenuVisible &&
+                <div className="navbar-menu">
+                    <div className="flex flex-col uppercase space-x-4">
+                        <NavLink className="py-10 md:hidden" to="/">Início</NavLink>
+                        <NavLink className="py-10 md:hidden" to="movie-details">Catálogo</NavLink>                    
+                    </div>
+                </div>
+                }
+                </div>
                 <p className="logo uppercase">Shaun<span className="font-bold text-pink-500">Movies</span></p>
                 <div className="flex uppercase space-x-4">
-                    <NavLink className="py-10" to="/">Início</NavLink>
-                    <NavLink className="py-10" to="movie-details">Catálogo</NavLink>
+                    <NavLink className="py-10 hidden md:block" to="/">Início</NavLink>
+                    <NavLink className="py-10 hidden md:block" to="movie-details">Catálogo</NavLink>
                     <div onClick={handleSearch} className="py-10 cursor-pointer">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_1586_138)">

@@ -13,14 +13,30 @@ body {
 nav {
     background-color: #212125;
     color: #eaeaea;
+
     .logo {
         font-size: 1.625rem;
-        
     }
 
     p:hover, a:hover {
         color: white;
     }
+
+    .navbar-menu-block {
+        position: relative;
+
+        .navbar-menu {
+            position: absolute;
+            top: 40px;
+            background-color: #212125;
+            width: 100vw;
+            z-index: 99;
+        }
+
+    }
+
+
+
     .search-wrapper {
         height: 500vh;
         width: 100%;
