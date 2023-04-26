@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom"
 import FetchData from "./FetchData"
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -11,6 +12,9 @@ const NavBar = () => {
 
     const {data: genreData} = FetchData('https://api.themoviedb.org/3/genre/movie/list?api_key=13bed307564b94b94af8c359e589d92e&language=pt-BR')
     
+
+    const navigate = useNavigate()
+
     const handleSearch = () => {
         setIsVisible(!isVisible);
     }
@@ -69,6 +73,11 @@ const NavBar = () => {
         return genreNames.join(", ")
     }
 
+    const goToDetails = (id) => {
+        navigate((`/movie-details/${id}`))
+        setIsVisible(false)
+    }
+
 
 
 
@@ -101,7 +110,7 @@ const NavBar = () => {
                     <input className="w-full" type="text" value={searchTerm} onChange={handleInputChange} />
                     <div className="movie-list pb-1">
                             {filteredMovies.slice(0,1).map((movieFiltered) => {
-                                return <div className="movie-search-result">
+                                return <div className="movie-search-result cursor-pointer" key={movieFiltered.id} onClick={() => goToDetails(movieFiltered.id)}>
                                             <img src={`http://image.tmdb.org/t/p/w300/${movieFiltered.poster_path}`} alt={movieFiltered.title} key={movieFiltered.id} />
                                             <div className="movie-search-result-info mt-4">
                                                 <p className="movie-search-result-title">{movieFiltered.original_title}</p> 
