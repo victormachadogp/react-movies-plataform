@@ -286,3 +286,22 @@ nav {
         }
     }
 }
+
+@media (max-width: 500px) {
+
+    .title {
+        text-align: center;
+    }
+
+    .carousel-main {
+        margin-left: 75px;
+    }
+
+    .prev-button {
+        left: 10px !important;
+    }
+
+    .next-button {
+        right: 10px !important;
+    }
+}

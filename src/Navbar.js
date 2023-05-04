@@ -88,7 +88,7 @@ const NavBar = () => {
 
     return (
         <nav className="expanded-width">
-            <div className="max-w-5xl 2xl:max-w-6xl mx-auto flex items-center justify-between">
+            <div className="max-w-5xl 2xl:max-w-6xl mx-auto flex items-center justify-between px-4 md:px-0">
                 <div className="navbar-menu-block md:hidden" onClick={toggleMobileMenu}>
                 <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1822_109)">
