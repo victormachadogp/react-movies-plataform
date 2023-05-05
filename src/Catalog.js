@@ -77,15 +77,15 @@ const Catalog = () => {
 
 
     return (
-        <section>
+        <section className="catalog-section">
             <div className="expanded-width catalog-title">
-                <div className="max-w-5xl 2xl:max-w-6xl mx-auto flex items-center justify-between">
+                <div className="max-w-5xl 2xl:max-w-6xl mx-auto flex items-center justify-between catalog-title-wrapper">
                     <h2 className="title"> <span className="font-bold">Catálogo</span> Completo</h2> 
                 </div>
             </div>
              <div>
                 <div className="flex justify-between my-10">
-                    <div>
+                    <div className="flex md:block">
                         {genreData && 
                         <select
                         value={genre}
@@ -102,9 +102,9 @@ const Catalog = () => {
                                 })}                            
                         </select>
                             }
-                        <button onClick={showMostPopular} className="btn-secondary ml-4">mais populares</button>
+                        <button onClick={showMostPopular} className="btn-secondary ml-4 whitespace-nowrap">mais populares</button>
                     </div>
-                    <button onClick={changeFlexLayout} className="btn-primary">{buttonText}</button>
+                    <button onClick={changeFlexLayout} className="btn-primary hidden md:block">{buttonText}</button>
                 </div>
                     <div>
 

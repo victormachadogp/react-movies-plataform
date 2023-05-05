@@ -292,7 +292,6 @@ nav {
     .title {
         text-align: center;
     }
-
     .carousel-main {
         margin-left: 75px;
     }
@@ -303,5 +302,19 @@ nav {
 
     .next-button {
         right: 10px !important;
+    }
+
+    .catalog-title {
+        .catalog-title-wrapper {
+            justify-content: center;
+        }
+    }
+
+    .catalog-section {
+        margin: 0 2rem;
+
+        .btn-primary, .btn-secondary {
+            padding: 0.5rem 1rem;
+        }
     }
 }
