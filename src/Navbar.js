@@ -132,8 +132,8 @@ const NavBar = () => {
             <div className="search-wrapper">
             <div className="search-box">
                 <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
-                    <input className="w-full" type="text" value={searchTerm} onChange={handleInputChange} />
-                    <div className="movie-list pb-1">
+                    <input className="w-full mx-5" type="text" value={searchTerm} onChange={handleInputChange} />
+                    <div className="movie-list pb-1 mx-5 md:mx-0">
                             {filteredMovies.slice(0,1).map((movieFiltered) => {
                                 return <div className="movie-search-result cursor-pointer" key={movieFiltered.id} onClick={() => goToDetails(movieFiltered.id)}>
                                             <img src={`http://image.tmdb.org/t/p/w300/${movieFiltered.poster_path}`} alt={movieFiltered.title} key={movieFiltered.id} />
