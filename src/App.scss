@@ -299,6 +299,18 @@ nav {
     }
 }
 
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background-color: #18181C;
+    margin-top: 10rem;
+
+    p {
+        font-weight: 300;
+    }
+}
+
 @media (max-width: 500px) {
 
     .title {
@@ -362,6 +374,13 @@ nav {
 
         iframe {
             height: 300px;
+        }
+    }
+
+    .footer {
+         
+        p {
+            font-size: 13px;
         }
     }
 
