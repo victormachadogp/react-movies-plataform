@@ -132,10 +132,10 @@ const Catalog = () => {
                                                     {item.vote_average.toString().slice(0, 3)}
                                                     
                                                 </p>
+                                            </div>
                                                 <p className="catalog-element-desc">{item.overview}
                                                 </p>
 
-                                            </div>
                                 </div>
                             })}
 
@@ -153,7 +153,7 @@ const Catalog = () => {
                             {movieData.results.slice(0, showMore).map((item) => {
                                 return <div className="catalog-element flex cursor-pointer" key={item.id} onClick={() => goToDetails(item.id)}>
                                            <img className="catalog-movie-img" src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`} alt={item.title}/>
-                                            <div>
+                                            <div className="catalog-info">
                                             <p className="catalog-element-title">{item.title}</p>
                                                 {genreData && <p className="catalog-element-genre">{getGenreName(item.genre_ids)}</p>}
                                                 <p className="catalog-element-rate flex items-center gap-2">
@@ -169,10 +169,10 @@ const Catalog = () => {
                                                 </svg>
                                                     {item.vote_average.toString().slice(0, 3)}
                                                 </p>
+                                            </div>
                                                 <p className="catalog-element-desc">{item.overview}
                                                 </p>
 
-                                            </div>
                                 </div>
                             })}
 

@@ -207,16 +207,32 @@ nav {
 }
 
 .catalog-element {
+    display: grid;
     width: 485px;
     height: 250px;
     gap: 1rem;
     margin-bottom: 1rem;
+    grid-template-columns: 166px 303px;
+    grid-template-areas:
+        "image info"
+        "image desc"
+    ;
+
+    .catalog-movie-img {
+        width: 166px;
+        grid-area: image;
+    }
+
+    .catalog-info {
+        grid-area: info;
+    }
 
     .catalog-element-desc {
         height: 145px;
         overflow: hidden;
         color: #9F9FA0;
         font-size: 0.875rem;
+        grid-area: desc;
     }
 
     .catalog-element-genre {
@@ -233,10 +249,6 @@ nav {
         background-color: red;
         min-width: 157px;
         height: 100%;
-    }
-
-    .catalog-movie-img {
-        width: 166px;
     }
 }
 
@@ -316,5 +328,19 @@ nav {
         .btn-primary, .btn-secondary {
             padding: 0.5rem 1rem;
         }
+    }
+
+    .catalog-element {
+        display: grid;
+        width: 485px;
+        height: auto;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        grid-template-columns: 166px 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "image info"
+            "desc desc"
+        ;
     }
 }
