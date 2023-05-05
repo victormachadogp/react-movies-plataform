@@ -343,4 +343,27 @@ nav {
             "desc desc"
         ;
     }
+
+    .movie-details {
+        .movie-poster {
+            place-self: center;
+        }
+
+        .movie-title { 
+            font-size: 27px !important;
+            line-height: inherit !important;
+        }
+    }
+
+    .movie-trailer {
+        h3 {
+            font-size: 20px;
+        }
+
+        iframe {
+            height: 300px;
+        }
+    }
+
+
 }

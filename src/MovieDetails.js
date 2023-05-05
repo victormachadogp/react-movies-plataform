@@ -21,11 +21,11 @@ const MovieDetails = () => {
                 <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
             
                     {movieData &&
-                    <div className="flex gap-12">
+                    <div className="flex gap-12 flex-col md:flex-row">
                         <div className="movie-poster">
                             <img className="w-full" src={`http://image.tmdb.org/t/p/w300/${movieData.poster_path}`} alt={movieData.title} />
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col mx-5 md:mx-0">
                             <h2 className="movie-title font-bold">{movieData.title}</h2>
                             <div className="movie-rated flex justify-between">
                                 <p className="font-light">{getGenreName(movieData.genres)}</p>
@@ -57,7 +57,7 @@ const MovieDetails = () => {
             </div>
 
             <div className="movie-trailer mt-12">
-                <h3 className="text-3xl	pb-2 mb-10">
+                <h3 className="text-3xl	pb-2 mb-10 mx-5 inline-block md:mx-0 md:block">
                     Trailer
                 </h3>
                 <div>

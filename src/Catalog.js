@@ -60,6 +60,7 @@ const Catalog = () => {
                 element.style.width = "495px"
             } else {
                 element.style.width = "100%"
+                element.style.gridTemplateColumns = "auto"
             }
             
         })
