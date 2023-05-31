@@ -109,7 +109,7 @@ const NavBar = () => {
                 </div>
                 }
                 </div>
-                <p className="logo uppercase">Shaun<span className="font-bold text-pink-500">Movies</span></p>
+                <p className="logo uppercase">South<span className="font-bold text-pink-500">Movies</span></p>
                 <div className="flex uppercase space-x-4">
                     <NavLink className="py-10 hidden md:block" to="/">Início</NavLink>
                     <NavLink className="py-10 hidden md:block" to="movie-details">Catálogo</NavLink>
@@ -132,7 +132,7 @@ const NavBar = () => {
             <div className="search-wrapper">
             <div className="search-box">
                 <div className="max-w-5xl 2xl:max-w-6xl mx-auto">
-                    <input className="w-full mx-5" type="text" value={searchTerm} onChange={handleInputChange} />
+                    <input className="w-full mx-5 md:mx-0" type="text" value={searchTerm} onChange={handleInputChange} />
                     <div className="movie-list pb-1 mx-5 md:mx-0">
                             {filteredMovies.slice(0,1).map((movieFiltered) => {
                                 return <div className="movie-search-result cursor-pointer" key={movieFiltered.id} onClick={() => goToDetails(movieFiltered.id)}>

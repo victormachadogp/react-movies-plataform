@@ -3,7 +3,7 @@ const Footer = () => {
 
     return (
         <section className="expanded-width footer">
-            <p>© 2023 Shaun Movies. All rights reserved.</p>
+            <p>© 2023 South Movies. All rights reserved.</p>
         </section>
     )
 }
